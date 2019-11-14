@@ -9,4 +9,4 @@ Ele irá funcionar com um **sensor de audio** que irá captar e medir o nivel de
 
 
 ### 2. Protoboard
-![](./ImagensReadme/proto.jpg width="300" height="300")
+![](./ImagensReadme/proto.jpg)
