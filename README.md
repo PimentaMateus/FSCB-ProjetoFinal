@@ -25,5 +25,3 @@ Ele irá funcionar com um **sensor de audio** que irá captar e medir o nivel de
 
 ### 5. Buzzer
 <img src="https://circuit.rocks/image/cache/product/AB279/passive-buzzer-module-for-arduino-avr-pic-1082-1024x1024.jpg" height="300" width="300">
-
-teste
