@@ -20,7 +20,7 @@ Ele irá funcionar com um **sensor de audio** que irá captar e medir o nivel de
 ### 3. Monitor LCD
 <img src="https://img.bgxcdn.com/thumb/large/oaupload/banggood/images/15/26/a6cc6d40-bd43-4fb6-961d-8a94c904dad6.JPG" height="300" width="300">
 
-### 4. Sensor de som
+### 4. Sensor de som Xinda LM 393
 <img src="https://d26lpennugtm8s.cloudfront.net/stores/361/642/products/slm-3931-053651bdf6aaa5693215124438778222-1024-1024.png" height="300" width="300">
 
 ### 5. Buzzer
