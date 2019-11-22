@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 import time
 from Hardware import sensor
+from Hardware import led
 
 user = '7f730680-0734-11ea-b49d-5f4b6757b1bf'
 password = 'dfb9be8e000efe3b25a1ae8885c4e16e0f2708e7'
@@ -17,18 +18,14 @@ client.username_pw_set(user, password)
 # MQTT Server, MQTT Port,
 client.connect(server, port)
 
-# Envia a informacao
-# client.publish('v1/' + user + '/things/' + client_id + '/data/0', hd.nivel)
-
 def detectasom1s():
-    v = 0
+    vezes = 0
     for x in range(100):
         time.sleep(.01)
-        v += sensor()       # pimentinha: se o v >= 30 por exemplo,  muita deteccao de ruido, entao ta rolando muito
-                            # barulho, ai entao acende o LED
-    return 'Som Detectado' if v > 0 else 'Nada Detectado' # if v >= 30 LEDON, else LEDOFF
+        vezes += sensor()
+        led()
 
-
+    return 'Som Detectado' if vezes > 0 else 'Nada Detectado'
 
 
 while True:
