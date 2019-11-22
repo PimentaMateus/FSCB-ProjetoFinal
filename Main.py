@@ -1,10 +1,6 @@
-# Aqui vamos fazer toda a execução padrao, como:
-# Comunicação com cayenne
-# Processamento dos valores de entrada e saída etc
-import RPi.GPIO as gpio
 import paho.mqtt.client as mqtt
 import time
-import Hardware as hd
+from Hardware import sensor
 
 user = '7f730680-0734-11ea-b49d-5f4b6757b1bf'
 password = 'dfb9be8e000efe3b25a1ae8885c4e16e0f2708e7'
@@ -22,6 +18,23 @@ client.username_pw_set(user, password)
 client.connect(server, port)
 
 # Envia a informacao
-#client.publish('v1/' + user + '/things/' + client_id + '/data/0', hd.nivel)
-client.publish('v1/' + user + '/things/' + client_id + '/data/1', hd.callback(channel=17))
-time.sleep(5)
+# client.publish('v1/' + user + '/things/' + client_id + '/data/0', hd.nivel)
+
+def detectasom1s():
+    v = 0
+    for x in range(100):
+        time.sleep(.01)
+        v += sensor()
+    return 'Som Detectado' if v > 0 else 'Nada Detectado'
+
+
+
+
+while True:
+    client.publish('v1/' + user + '/things/' + client_id + '/data/1', detectasom1s())
+    som = detectasom1s()
+    print(som)
+
+
+
+
