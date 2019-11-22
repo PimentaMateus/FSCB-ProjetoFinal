@@ -24,8 +24,9 @@ def detectasom1s():
     v = 0
     for x in range(100):
         time.sleep(.01)
-        v += sensor()
-    return 'Som Detectado' if v > 0 else 'Nada Detectado'
+        v += sensor()       # pimentinha: se o v >= 30 por exemplo,  muita deteccao de ruido, entao ta rolando muito
+                            # barulho, ai entao acende o LED
+    return 'Som Detectado' if v > 0 else 'Nada Detectado' # if v >= 30 LEDON, else LEDOFF
 
 
 
