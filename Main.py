@@ -4,7 +4,7 @@
 import RPi.GPIO as gpio
 import paho.mqtt.client as mqtt
 import time
-import hardware as hd
+import Hardware as hd
 
 user = '7f730680-0734-11ea-b49d-5f4b6757b1bf'
 password = 'dfb9be8e000efe3b25a1ae8885c4e16e0f2708e7'
@@ -22,6 +22,6 @@ client.username_pw_set(user, password)
 client.connect(server, port)
 
 # Envia a informacao
-client.publish('v1/' + user + '/things/' + client_id + '/data/0', hd.som())
-client.publish('v1/' + user + '/things/' + client_id + '/data/1', hd.led())
+#client.publish('v1/' + user + '/things/' + client_id + '/data/0', hd.nivel)
+client.publish('v1/' + user + '/things/' + client_id + '/data/1', hd.callback(channel=17))
 time.sleep(5)
