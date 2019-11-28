@@ -24,7 +24,6 @@ def detectasom1s():
         time.sleep(.01)
         vezes += sensor()
         led()
-
     return 'Som Detectado' if vezes > 0 else 'Nada Detectado'
 
 

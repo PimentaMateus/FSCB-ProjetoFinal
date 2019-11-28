@@ -1,9 +1,13 @@
 import RPi.GPIO as GPIO
-pinLED = 18
+import Main
+pinLED = 4
 pinSensor = 17
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pinSensor, GPIO.IN)
 GPIO.setup(pinLED, GPIO.OUT)
+
+
 
 
 def sensor():
@@ -12,7 +16,4 @@ def sensor():
 
 
 def led():
-    if sensor() > 0:
-        return GPIO.output(pinLED, GPIO.HIGH)
-    else:
-        return GPIO.output(pinLED, GPIO.HIGH)
+    return GPIO.output(pinLED, GPIO.HIGH)
