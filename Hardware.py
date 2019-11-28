@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
-import Main
-pinLED = 4
+pinLED = 22
 pinSensor = 17
 
 GPIO.setmode(GPIO.BCM)
@@ -11,9 +10,17 @@ GPIO.setup(pinLED, GPIO.OUT)
 
 
 def sensor():
-    """funcao para o sensor de som"""
-    return 1 if GPIO.input(pinSensor) else 0
+    if GPIO.input(pinSensor):
+        led(1)
+        return 1
+    else:
+        led(0)
+        return 0
+    #return 1 if GPIO.input(pinSensor) else 0
 
 
-def led():
-    return GPIO.output(pinLED, GPIO.HIGH)
+def led(status):
+    if status == 1:
+        return GPIO.output(pinLED, GPIO.HIGH)
+    elif status == 0:
+        return GPIO.output(pinLED, GPIO.LOW)

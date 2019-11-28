@@ -1,7 +1,6 @@
 import paho.mqtt.client as mqtt
 import time
-from Hardware import sensor
-from Hardware import led
+import Hardware
 
 user = '7f730680-0734-11ea-b49d-5f4b6757b1bf'
 password = 'dfb9be8e000efe3b25a1ae8885c4e16e0f2708e7'
@@ -22,13 +21,22 @@ def detectasom1s():
     vezes = 0
     for x in range(100):
         time.sleep(.01)
-        vezes += sensor()
-        led()
-    return 'Som Detectado' if vezes > 0 else 'Nada Detectado'
+        vezes += Hardware.sensor()
+
+    if vezes > 0:
+        #Hardware.led()
+        #time.sleep(1)
+        return 'Som Detectado'
+
+    else:
+        #Hardware.led()
+        #time.sleep(1)
+        return 'Nada Detectado'
 
 
 while True:
     client.publish('v1/' + user + '/things/' + client_id + '/data/1', detectasom1s())
+
     som = detectasom1s()
     print(som)
 
