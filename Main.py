@@ -22,23 +22,19 @@ def detectasom1s():
     for x in range(100):
         time.sleep(.01)
         vezes += Hardware.sensor()
-
     if vezes > 0:
-        #Hardware.led()
-        #time.sleep(1)
         return 'Som Detectado'
 
     else:
-        #Hardware.led()
-        #time.sleep(1)
         return 'Nada Detectado'
 
 
 while True:
-    client.publish('v1/' + user + '/things/' + client_id + '/data/1', detectasom1s())
 
     som = detectasom1s()
     print(som)
+    client.publish('v1/' + user + '/things/' + client_id + '/data/1', som)
+
 
 
 
